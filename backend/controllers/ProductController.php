@@ -144,7 +144,8 @@ class ProductController extends AppAdminController
      */
     public function actionCreate()
     {
-        $params = Yii::$app->params['languages'];
+
+        $paramsLanguages = $this->getParamsLanguages();
 
         $model = new Product();
 
@@ -162,27 +163,33 @@ class ProductController extends AppAdminController
 //            }
 //            $model->imageFiles = null;
 
-            if (count($params) > 1) {
+            if (count($paramsLanguages['params']) > 1) {
                 $data = Yii::$app->request->post('Lang');
                 $data2 = Yii::$app->request->post('Product');
-                $data['ru'] =[
-                    'name' => $data2['name'],
-                    'content' => $data2['content'],
-                    'slug' => $data2['slug'],
-                    'keywords' => $data2['keywords'],
-                    'description' => $data2['description'],
-                ];
+//                $data['ru'] =[
+//                    'name' => $data2['name'],
+//                    'content' => $data2['content'],
+//                    'slug' => $data2['slug'],
+//                    'keywords' => $data2['keywords'],
+//                    'description' => $data2['description'],
+//                ];
+                $model->name = $data['ru']['name'];
+                $model->content = $data['ru']['content'];
+                $model->keywords = $data['ru']['keywords'];
+                $model->description = $data['ru']['description'];
+                $model->price = (float)$data2['price'];
                 $model->lang = serialize($data);
             }
 
             $model->save();
 
             Yii::$app->session->setFlash('success', 'Создана!');
-//            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
             'model' => $model,
+            'paramsLanguages' => $paramsLanguages,
         ]);
     }
 
@@ -196,7 +203,7 @@ class ProductController extends AppAdminController
     public function actionUpdate($id)
     {
 
-        $params = Yii::$app->params['languages'];
+        $paramsLanguages = $this->getParamsLanguages();
 
         $model = $this->findModel($id);
 
@@ -214,17 +221,16 @@ class ProductController extends AppAdminController
 //            }
 //            $model->imageFiles = null;
 
-            if (count($params) > 1) {
+            if (count($paramsLanguages['params']) > 1) {
                 $data = Yii::$app->request->post('Lang');
                 $data2 = Yii::$app->request->post('Product');
-                $data['ru'] =[
-                    'name' => $data2['name'],
-                    'content' => $data2['content'],
-                    'slug' => $data2['slug'],
-                    'keywords' => $data2['keywords'],
-                    'description' => $data2['description'],
-                ];
+                $model->name = $data['ru']['name'];
+                $model->content = $data['ru']['content'];
+                $model->keywords = $data['ru']['keywords'];
+                $model->description = $data['ru']['description'];
+                $model->price = (float)$data2['price'];
                 $model->lang = serialize($data);
+
             }
 
             $model->save();
@@ -234,7 +240,7 @@ class ProductController extends AppAdminController
 
         return $this->render('update', [
             'model' => $model,
-            'params' => $params,
+            'paramsLanguages' => $paramsLanguages,
         ]);
     }
 

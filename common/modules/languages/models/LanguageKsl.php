@@ -7,11 +7,11 @@ use Yii;
 class LanguageKsl
 {
 
-    static $list; //строка вида ru|uk|en|
+    static $list; //строка вида ru|ua|en|
 
 
     /*
-     * Преобразование к строке вида ru|uk|en|
+     * Преобразование к строке вида ru|ua|en|
      * для использования в регулярных выражениях
      */
     public static function list_languages(){
@@ -36,7 +36,7 @@ class LanguageKsl
      * Разбивает URL на подмассив $match_arr
      * 0. http://site.loc/ru/contact
      * 1. http://site.loc
-     * 2. ru или uk или en
+     * 2. ru или ua или en
      * 3. остальная часть
      */
     public static function parsingUrl($language, $url_referrer){

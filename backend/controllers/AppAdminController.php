@@ -10,7 +10,7 @@
 
 namespace backend\controllers;
 
-
+use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
@@ -36,9 +36,17 @@ class AppAdminController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post','get'],
+                    'logout' => ['post', 'get'],
                 ],
             ],
         ];
+    }
+
+    public function getParamsLanguages()
+    {
+        $params = Yii::$app->params['languages'];
+        $language = Yii::$app->language;
+
+        return ['params'=>$params,'language'=>$language];
     }
 }

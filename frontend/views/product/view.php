@@ -86,13 +86,14 @@ if (count($params) >= 1) {
                                 <div class="item active">
                                     <a href=""><?= Html::img($products->img, ['alt' => $name]) ?></a>
                                 </div>
-                                <div class="item">
-                                    <a href=""><?= Html::img($products->img, ['alt' => $name]) ?></a>
-                                </div>
-                                <div class="item">
-                                    <a href=""><?= Html::img( $products->img, ['alt' => $name]) ?></a>
-                                </div>
-
+                                <?php if (isset($products->gallery) && !empty($products->gallery)) :?>
+                                <?php $gallery = unserialize($products->gallery); ?>
+                                <?php foreach ($gallery as $image) : ?>
+                                        <div class="item">
+                                            <a href="#"><?= Html::img($image, ['alt' => $name]) ?></a>
+                                        </div>
+                                <?php endforeach; ?>
+                                <?php endif; ?>
                             </div>
 
                             <!-- Controls -->

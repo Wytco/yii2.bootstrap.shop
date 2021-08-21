@@ -15,14 +15,14 @@ return [
     ],
     'controllerNamespace' => 'frontend\controllers',
 //    'language' => 'ru-Ru',
-    'sourceLanguage' => 'ru',
+    'sourceLanguage' => 'ua',
     'defaultRoute' => 'category/index',
     'modules' => [
         'languages' => [
             'class' => 'common\modules\languages\Module',
             //Языки используемые в приложении
             'languages' => $params['languages'],
-            'default_language' => 'ru', //основной язык (по-умолчанию)
+            'default_language' => 'ua', //основной язык (по-умолчанию)
             'show_default' => false, //true - показывать в URL основной язык, false - нет
         ],
     ],

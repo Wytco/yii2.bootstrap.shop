@@ -41,7 +41,6 @@
                             ['label' => 'Создать категорию', 'icon' => 'file-code-o', 'url' => ['/category/create'],],
                         ],
                     ],
-                    ['label' => 'Видео', 'icon' => 'file-code-o', 'url' => ['/site/video']],
                     [
                         'label' => 'Заказы',
                         'icon' => 'share',
@@ -51,16 +50,7 @@
                             ['label' => 'Создать заказ Не работает, работает Обновление', 'icon' => 'file-code-o', 'url' => ['/order/create'],],
                         ],
                     ],
-                    [
-                        'label' => 'Парсинг',
-                        'icon' => 'share',
-                        'url' => '#',
-                        'items' => [
-                            ['label' => 'Парсинг yandex 1', 'icon' => 'file-code-o', 'url' => ['/yandex/yandex'],],
-                            ['label' => 'Парсинг yandex 2', 'icon' => 'file-code-o', 'url' => ['/yandex/yandex-news'],],
-                            ['label' => 'Парсинг yandex 3', 'icon' => 'file-code-o', 'url' => ['/yandex/yandex-news-list'],],
-                        ],
-                    ],
+
                     [
                         'label' => 'Продукты',
                         'icon' => 'share',
@@ -71,11 +61,7 @@
                             ['label' => 'Создать продукт', 'icon' => 'file-code-o', 'url' => ['/product/create'],],
                         ],
                     ],
-                    ['label' => 'Записи', 'url' => ['/notes/index']],
-                    ['label' => 'CSV', 'url' => ['/csv/index']],
-                    ['label' => 'Чат', 'url' => ['/chat/index']],
-                    ['label' => 'Шкафы', 'url' => ['/cupboard/index']],
-                    ['label' => 'Калькуляторы', 'url' => ['/site/calculator']],
+
 //                    ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
                         'label' => 'Настройки',
@@ -83,6 +69,29 @@
                         'url' => '#',
                         'items' => [
                             ['label' => 'Языки', 'icon' => 'file-code-o', 'url' => ['/options/languages'],],
+                        ],
+                    ],
+                    [
+                        'label' => 'Мои Приколы',
+                        'icon' => 'times',
+                        'url' => '#',
+                        'items' => [
+                            [
+                                'label' => 'Парсинг',
+                                'icon' => 'share',
+                                'url' => '#',
+                                'items' => [
+                                    ['label' => 'Парсинг yandex 1', 'icon' => 'file-code-o', 'url' => ['/yandex/yandex'],],
+                                    ['label' => 'Парсинг yandex 2', 'icon' => 'file-code-o', 'url' => ['/yandex/yandex-news'],],
+                                    ['label' => 'Парсинг yandex 3', 'icon' => 'file-code-o', 'url' => ['/yandex/yandex-news-list'],],
+                                ],
+                            ],
+                            ['label' => 'Видео', 'icon' => 'file-code-o', 'url' => ['/site/video']],
+                            ['label' => 'Записи', 'url' => ['/notes/index']],
+                            ['label' => 'CSV', 'url' => ['/csv/index']],
+                            ['label' => 'Чат', 'url' => ['/chat/index']],
+                            ['label' => 'Шкафы', 'url' => ['/cupboard/index']],
+                            ['label' => 'Калькуляторы', 'url' => ['/site/calculator']],
                         ],
                     ],
                     [

@@ -13,6 +13,8 @@ use yii\web\JsExpression;
 /* @var $model backend\models\Product */
 /* @var $form yii\widgets\ActiveForm */
 
+$params = $paramsLanguages['params'];
+$language = $paramsLanguages['language'];
 
 ?>
 
@@ -31,45 +33,26 @@ use yii\web\JsExpression;
 
         <div class="help-block"></div>
     </div>
-    <?= $form->field($model, 'price')->textInput() ?>
+    <?= $form->field($model, 'price')->textInput()->input('text', ['placeholder' => 'В формате 29000.99']) ?>
 
     <?php if (count($params) >= 1) : ?>
         <ul class="nav nav-tabs">
             <?php   foreach ($params as $key => $value): ?>
-                <li class="nav-item">
+                <li class="nav-item <?= $value === 'ru' ? 'active' : null ?>">
                     <a class="nav-link" data-toggle="tab" href="#description-<?= $value ?>"><?= $key ?></a>
                 </li>
             <?php endforeach; ?>
         </ul>
         <div class="tab-content">
-            <div class="tab-pane fade active in" id="description">
-                <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-                <?= $form->field($model, 'content')->widget(CKEDITOR::className(), [
-                    'editorOptions' => ElFinder::ckeditorOptions('elfinder', [
-                        'editorOptions' => [
-                            'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
-                            'inline' => false, //по умолчанию false
-                        ],
-                    ]),
-
-                ]); ?>
-
-<!--                --><?//=  $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
-
-                <?= $form->field($model, 'keywords')->textInput(['maxlength' => true]) ?>
-
-                <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
-            </div>
             <?php foreach ($params as $key => $value): ?>
-                <div class="tab-pane fade" id="description-<?= $value ?>">
+                <div class="tab-pane fade <?= $value === 'ru' ? 'active in' : null ?>" id="description-<?= $value ?>">
                     <?php
                     if (isset($model->lang) && !empty($model->lang)) {
                         $data = unserialize($model->lang);
                         $result = $data[$value];
                         $name = $result['name'];
                         $content = $result['content'];
-//                        $slug = $result['slug'];
                         $keywords = $result['keywords'];
                         $description = $result['description'];
                     }
