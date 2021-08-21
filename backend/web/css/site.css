@@ -1,0 +1,267 @@
+html,
+body {
+    height: 100%;
+}
+
+.wrap {
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
+
+.wrap > .container {
+    padding: 70px 15px 20px;
+}
+
+.footer {
+    height: 60px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+.jumbotron {
+    text-align: center;
+    background-color: transparent;
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+.not-set {
+    color: #c55;
+    font-style: italic;
+}
+
+/* add sorting icons to gridview sort links */
+a.asc:after, a.desc:after {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    padding-left: 5px;
+}
+
+a.asc:after {
+    content: /*"\e113"*/ "\e151";
+}
+
+a.desc:after {
+    content: /*"\e114"*/ "\e152";
+}
+
+.sort-numerical a.asc:after {
+    content: "\e153";
+}
+
+.sort-numerical a.desc:after {
+    content: "\e154";
+}
+
+.sort-ordinal a.asc:after {
+    content: "\e155";
+}
+
+.sort-ordinal a.desc:after {
+    content: "\e156";
+}
+
+.grid-view th,
+.grid-view td:last-child {
+    white-space: nowrap;
+}
+
+.grid-view .filters input,
+.grid-view .filters select {
+    min-width: 50px;
+}
+
+.hint-block {
+    display: block;
+    margin-top: 5px;
+    color: #999;
+}
+
+.error-summary {
+    color: #a94442;
+    background: #fdf7f7;
+    border-left: 3px solid #eed3d7;
+    padding: 10px 20px;
+    margin: 0 0 15px 0;
+}
+
+/* align the logout "link" (button in form) of the navbar */
+.nav li > form > button.logout {
+    padding: 15px;
+    border: none;
+}
+
+@media (max-width: 767px) {
+    .nav li > form > button.logout {
+        display: block;
+        text-align: left;
+        width: 100%;
+        padding: 10px 15px;
+    }
+}
+
+.nav > li > form > button.logout:focus,
+.nav > li > form > button.logout:hover {
+    text-decoration: none;
+}
+
+.nav > li > form > button.logout:focus {
+    outline: none;
+}
+
+.background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #0000007a;
+    z-index: 1;
+    display: none;
+}
+.background.active {
+    display: block;
+}
+.my_modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+    opacity: 0;
+    -webkit-transition: opacity .15s linear;
+    -o-transition: opacity .15s linear;
+    transition: opacity .15s linear;
+    width: 850px;
+    margin: 75px auto 30px;
+    display: none;
+}
+
+.my_modal.active {
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+    opacity: 1;
+}
+.my_modal.active .body {
+    position: relative;
+    width: fit-content;
+    background: white;
+    text-align: center;
+    z-index: 1;
+    height: max-content;
+    top: 75px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    border-radius: 15px;
+    padding: 35px;
+}
+
+.lds-dual-ring {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+.lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.chat .list {
+    height: 350px;
+    overflow-x: visible;
+    overflow-y: scroll ;
+    width: 350px;
+}
+.chat .list .first_user_id {
+    float: right;
+    background: #76ee76;
+    padding: 10px;
+    border-radius: 50px 50px 0 50px;
+}
+.chat .list .second_user_id {
+    float: left;
+    background: #5af0ff;
+    padding: 10px;
+    border-radius: 0px 50px 50px 50px;
+}
+
+#table .table-row {
+    float: left;
+    border: 1px solid black;
+    position: relative;
+}
+#table .table-col {
+    border-bottom:  1px solid black;
+    position: relative;
+}
+#table .transform  {
+    /*-moz-transform: rotate(90deg);*/
+    /*-ms-transform: rotate(90deg);*/
+    /*-webkit-transform: rotate(90deg);*/
+    /*-o-transform: rotate(90deg);*/
+    /*transform: rotate(90deg);*/
+    /*top: 0;*/
+    /*text-align: center;*/
+    /*width: 100%;*/
+    /*position: relative;*/
+}
+
+.size_chart td {
+    padding: 4px;
+    font-size: 11px;
+    border: 1px solid #c7c7c7;
+    vertical-align: middle;
+}
+
+.header-line>td {
+    background: #c8ffc2;
+    font-size: 13px;
+    font-weight: 700;
+}
+td.header-side {
+    text-align: left;
+    background: #c8ffc2;
+    font-size: 13px;
+    font-weight: 700;
+    width: 170px;
+}
+
+.size_chart td.active {
+    color: white;
+    background: #0b72b88a;
+}
+
+.size_chart tr.active td {
+    color: white;
+    background: #0b72b88a;
+}
